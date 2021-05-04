@@ -132,6 +132,12 @@ margin-bottom: -15px;
 .carousel-header{
   height:150px;
 }
+
+.nft-carousel-header {
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+
 .carousel-header img {
   margin-top: -1em;
 }

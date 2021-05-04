@@ -72,8 +72,10 @@ function loadAccountData(){
   $('#potassium-power').hide();
   $("#introduction").hide();
   $("#account-row").hide();
+  $('#nft-viewer').hide();
   var account =  window.localStorage.account;
   var minerId =  window.localStorage.minerId;
+  var waxId = window.localStorage.waxId;
   var potassiumPower = 0;
   var accountBalance = 0;
   var banusd = 0;
@@ -83,8 +85,10 @@ function loadAccountData(){
     getTransactions(account,15);
     setMonKey(account);
     getMinerData();
+    getNFTWaxWallet();
     $("#banano-address").val(account);
     $("#miner-id").val(minerId);
+    $("#wax-id").val(waxId);
   }else{
     $("#introduction").show();
   }
@@ -97,16 +101,23 @@ function getMinerData(){
     $.getJSON('https://bananominer.com/user_name/'+minerId, function(data) {
       row_string = ""
       payments = data.payments
+      var last_wu = 0;
+      var last_points = 0;
       $('#mining-rows')[0].innerHTML = "";
-      for(i in payments){
+      payments.slice().reverse()
+      .forEach(function(item) {
+            console.log(item);
+
         row_string = '<tr> \
-                        <th scope="row">'+ payments[i].created_at +'</th> \
-                        <td><a href="https://creeper.banano.cc/explorer/block/'+ payments[i].block_hash +'" target="_blank">'+ payments[i].amount +'</a></td> \
-                        <td>'+ payments[i].work_units +'</td> \
-                        <td>'+ payments[i].score +'</td> \
+                        <th scope="row">'+ new Date(item.created_at).toLocaleString().replace(',','') +'</th> \
+                        <td><a href="https://creeper.banano.cc/explorer/block/'+ item.block_hash +'" target="_blank">'+ item.amount +'</a></td> \
+                        <td>'+ (parseInt(item.work_units)-last_wu) +'</td> \
+                        <td>'+ (parseInt(item.score)-last_points)  +'</td> \
                       </tr>'
-        $('#mining-rows').append(row_string);
-      }
+        $('#mining-rows').prepend(row_string);
+        last_wu = parseInt(item.work_units);
+        last_points = parseInt(item.score);
+      });
       $('#mining').css('display', 'flex');
     });
   }
@@ -177,6 +188,40 @@ function getPublish0xNews(){
 
    $('#news').append(newsClip);
 }
+
+function getNFTWaxWallet(){
+  waxId = window.localStorage.waxId;
+  if(waxId != "" && waxId != undefined){
+    $.getJSON('https://wax.api.atomicassets.io/atomicmarket/v1/assets?owner='+ waxId +'&page=1&limit=10&order=desc&sort=asset_id', function(data) {
+      console.log(data);
+      nfts = data.data;
+      for(i in nfts){
+        img = "https://resizer.atomichub.io/images/v1/preview?ipfs="+nfts[i].data.img+"&size=370";
+        name = nfts[i].data.name;
+        collection = nfts[i].collection.collection_name;
+
+        if(i==0){
+          indicator = '<li data-target="#nftIndicators" data-slide-to="'+i+'" class="active"></li>';
+          active_ind = 'active';
+        }else{
+          indicator = '<li data-target="#nftIndicators" data-slide-to="'+i+'"></li>';
+          active_ind = '';
+        }
+
+        nft_slide = '<div class="carousel-item '+ active_ind +'" id="nft-slide">\
+          <div class="nft-carousel-header">\
+            <img class=" w-100" src="'+img+'" alt=""/>\
+          </div>\
+        </div>';
+
+        $('#nft-indicators').append(indicator);
+        $('#nft-holder').append(nft_slide);
+      }
+      $('#nft-viewer').show();
+    });
+  }
+}
+
 
 window.bananocoinBananojs.setBananodeApiUrl(url);
 loadAccountData();
