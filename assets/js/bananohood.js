@@ -196,7 +196,7 @@ function getNFTWaxWallet(){
       console.log(data);
       nfts = data.data;
       for(i in nfts){
-        img = "https://resizer.atomichub.io/images/v1/preview?ipfs="+nfts[i].data.img+"&size=370";
+        img = "https://ipfs.atomichub.io/ipfs/"+nfts[i].data.img;
         name = nfts[i].data.name;
         collection = nfts[i].collection.collection_name;
 
