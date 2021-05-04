@@ -1,0 +1,264 @@
+
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./assets/img/favicon.ico">
+    <title>Bananohood</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link href="./assets/css/bananohood.css" rel="stylesheet">
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+      <a class="navbar-brand" id="brand" href="#"> <img id="brand-logo" src="./assets/img/bananohood-name-logo.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsBananohoodDefault" aria-controls="navbarsBananohoodDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsBananohoodDefault">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="dropdown01" data-toggle="modal" data-target="#qrModal" aria-haspopup="true" aria-expanded="false">Donations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="dropdown01" data-toggle="modal" data-target="#settingsModal" aria-haspopup="true" aria-expanded="false">Account</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="container flex-shrink-0">
+      <div class="row mb-5" id="account-row">
+        <div class="col-md-8">
+          <div class="row" id="monkey-row">
+            <div class="col-9">
+              <h4 id="accountBalance"></h4>
+              <small id="banusd" class="text-muted"></small>
+            </div>
+            <div class="col-3">
+              <img class="" id="generated-monKey" src="" alt="monKey 5" title="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+            <div class="chart">
+              <script src="./assets/js/coingecko.js"></script>
+              <coingecko-coin-compare-chart-widget  coin-ids="banano" currency="usd" locale="en" background-color="#131824"></coingecko-coin-compare-chart-widget>
+              <div id="potassium-power">
+                <h4>Potassium Power: <span id="potassiumPower"></span> BAN</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div id="transactions-list">
+          <li class="list-group-item transactions d-flex justify-content-between lh-condensed">
+            <div>
+              <h4 class="my-0">Transactions</h4>
+            </div>
+          </li>
+          <ul id="transactions" class="list-group mb-3">
+          </ul>
+        </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+          <div class="col-md-8">
+            <div id="introduction">
+              <div id="carouselIndicators" class="carousel" data-interval="false">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active" id="bananohood-slide">
+                    <div class="carousel-caption d-md-block">
+                      <div class="carousel-header">
+                        <h2>Welcome to </h2>
+                        <img class=" w-75" src="./assets/img/bananohood-name-logo.png" alt=""/>
+                      </div>
+                      <h5>
+                        Bananohood is a client-side dashboard that aggregates all your Banano information in one place <br><br>
+                        Monitor Banano's price movements<br><br> Connect and view your Banano account<br><br> Track your Folding@Home production<br><br> Stay up to date on the latest Banano News!
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item" id="banano-slide">
+                    <img style="padding-left: 25%; margin-top: -2em;" class="d-block w-75" src="https://banano.cc/assets/press-assets/banano-logo-vertical-w.svg" alt="">
+                    <br>
+                    <div class="carousel-caption d-md-block">
+                      <h4>
+                        Banano is a feeless, instant, rich in potassium cryptocurrency powered by DAG technology disrupting the meme economy.
+                      </h4>
+                      <br>
+                      <a class="btn btn-warning" target="_blank" href="https://www.banano.cc">Read the yellow paper and learn more about Banano</a>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="d-block w-75" style="padding-left:25%">
+                      <h2 class="brand">Getting started is easy!</h2><br>
+                      <h5>
+                        1. Click on "Account" (top right corner)<br><br>
+                        2. Enter your public wallet address and Banano Miner Id (if applicable)<br><br>
+                        3. Save Changes and enjoy exploring Banano and the world of Crypto!
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+            <ul id="mining" class="list-group mb-3">
+              <li class="list-group-item transactions d-flex justify-content-between lh-condensed">
+                <div>
+                  <h4 class="my-0">Folding@Home</h4> <p class="text-muted"> powered by <a href="https://bananominer.com/" target="_blank">Banano Miner</a></p>
+                </div>
+              </li>
+              <li class="list-group-item transactions d-flex justify-content-between lh-condensed">
+                <div class="table-responsive">
+                  <table class="table table-brand">
+                    <thead>
+                      <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">BAN</th>
+                        <th scope="col">Work Units</th>
+                        <th scope="col">Points</th>
+                      </tr>
+                    </thead>
+                    <tbody id="mining-rows">
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+            </ul>
+            <br>
+            <ul id="news" class="list-group mb-3">
+              <li class="list-group-item transactions d-flex justify-content-between lh-condensed">
+                <div>
+                  <h4 class="my-0">The Bananophone</h4> <p class="text-muted"> powered by Reddit & <a href="https://www.publish0x.com/?a=X7axvLNBdy" target="_blank">Publish0x</a></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul id="how-to" class="list-group mb-3">
+              <li class="list-group-item transactions d-flex justify-content-between lh-condensed">
+                <div>
+                  <h4 class="my-0">How To Get Banano</h4>
+                </div>
+              </li>
+              <li class="list-group-item transactions d-flex justify-content-between lh-condensed">
+                <div>
+                  <a href="https://www.coinex.com/register?refer_code=zu3y2"> <img class="w-100" src="https://www.coinex.com/assets/img/logo-white.png"></a>
+                  <h6 class="my-0"><a href="https://www.coinex.com/register?refer_code=zu3y2"> Buy on CoinEx</a></h6>
+                </div>
+              </li>
+              <li class="list-group-item transactions d-flex justify-content-between lh-condensed">
+                <div>
+                  <a href="https://bananobet.com/refer/32521"> <img class="w-100" src="https://bananobet.com/static/build/img/banano-bet-logo-yh.b4dd859749ad7b95adc829d6082e04aa.svg"></a>
+                  <h6 class="my-0"><a href="https://bananobet.com/refer/32521"> Play BananoBet</a></h6>
+                </div>
+              </li>
+              <li class="list-group-item transactions d-flex justify-content-between lh-condensed">
+                <div>
+                  <a href="https://bananominer.com/"> <img class="w-100" src="https://foldingathome.org/wp-content/uploads/2016/10/cropped-foldingathome-logo.png"></a>
+                  <h6 class="my-0"><a href="https://bananominer.com/">Join the Folding@Home Team</a></h6>
+                </div>
+              </li>
+            </ul>
+          </div>
+      </div>
+
+      <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Bananohood Settings</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img class="w-50" id="monkey-img" src="./assets/img/bananohood-logo.png" alt="monkey img" title="">
+              <form>
+               <div class="form-group">
+                 <label for="banano-address" class="col-form-label">Banano Address:</label>
+                 <input type="text" class="form-control" id="banano-address">
+               </div>
+               <div class="form-group">
+                 <label for="miner-id" class="col-form-label">Miner Id:</label>
+                 <input type="text" class="form-control" id="miner-id">
+               </div>
+             </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-brand" onclick="saveAddress()">Save changes</button>
+              <script>
+                function saveAddress() {
+                  window.localStorage.account = $('#banano-address').val();
+                  window.localStorage.minerId = $('#miner-id').val();
+                  loadAccountData();
+                }
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Bananohood Donations</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img class="w-75" id="monkeyQR" src="./assets/img/bananohood_qr_code.png" alt="ban_3d5aw9eaqwf45banqytrkt7xgh7aff7r8xxc38qps7mxc7fuoapfheucbsng" title="ban_3d5aw9eaqwf45banqytrkt7xgh7aff7r8xxc38qps7mxc7fuoapfheucbsng">
+              <h4 style="text-align: center;">Thank you for your donation!</h4>
+              <h3 style="text-align: center;"><a class="brand" onmouseover="" style="cursor: pointer; " onclick="copyAddr()">Copy Address</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer mt-auto p-2">
+      <div class="">
+        <p class="text-muted my-0">Donations: <a class="brand" onmouseover="" style="cursor: pointer; " onclick="copyAddr()">Copy Address</a> | <a class="brand" href="#" id="qrModal" data-toggle="modal" data-target="#qrModal" aria-haspopup="true" aria-expanded="false">Scan QR Code </a></p>
+        <input type="text" value="ban_3d5aw9eaqwf45banqytrkt7xgh7aff7r8xxc38qps7mxc7fuoapfheucbsng" id="donationAddr">
+        <script>
+        function copyAddr() {
+          console.log("copied")
+          var copyText = document.getElementById("donationAddr");
+          copyText.select();
+          document.execCommand("copy");
+          alert("Address copied! All donations are greatly appreciated!");
+        }
+        </script>
+      </div>
+    </footer>
+    <script src="./assets/js/jquery-3.2.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/bananocoin-bananojs.js"></script>
+    <script src="./assets/js/bananohood.js"></script>
+  </body>
+</html>

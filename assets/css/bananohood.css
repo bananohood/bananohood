@@ -1,0 +1,150 @@
+body{
+  background-color: rgb(19,24,36);
+  padding-top: 5rem;
+  color:white;
+}
+
+nav{
+  background-color: rgb(19,24,36);
+}
+
+.brand{
+  color: #ffc432;
+}
+
+.btn-brand{
+  background-color: #ffc432;
+}
+
+#brand{
+  color: #ffc432;
+  font-weight: bold;
+}
+
+.table-brand {
+    color: #fff;
+    /*background-color: rgb(19,24,36);*/
+    background-color: #1f2637;
+}
+
+.transactions {
+    background-color: #1f2637; /*rgb(19,24,36);*/
+    border: 1px solid rgba(251,251,251,.125);
+}
+
+.card{
+  background-color: #1f2637;
+}
+
+#transactions{
+  max-height: 450px;
+  margin-bottom: 10px;
+  overflow:scroll;
+}
+
+#generated-monKey{
+  width: 85px;
+  margin-top: -15px;
+  margin-bottom: -20px;
+  float:right;
+  display: none;
+}
+
+#monkey-row{
+  min-height:65px;
+}
+
+#transactions::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#transactions {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.table-responsive{
+  max-height: 400px;
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.table-responsive::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit; /* no underline */
+}
+
+a:hover{
+  color: #ffc432;
+  text-decoration: inherit; /* no underline */
+}
+
+#donationAddr{
+    position: absolute;
+    left: -999em;
+}
+
+#monkeyQR{
+  padding-left:25%;
+}
+
+.modal-content{
+  background-color: #1f2637;
+}
+
+#monkey-img{
+  border-radius:500px;
+}
+
+#mining{
+  display: none;
+}
+
+#transactions-list{
+  display: none;
+}
+
+#potassium-power{
+  display: none;
+}
+
+#brand-logo{
+max-height: 60px;
+margin-top: -10px;
+margin-bottom: -15px;
+}
+
+#banano-slide{
+  background-color:#4CBF4B;
+}
+
+.carousel-item{
+  max-height:450px;
+  height:450px;
+}
+
+.carousel-header{
+  height:150px;
+}
+.carousel-header img {
+  margin-top: -1em;
+}
+
+.carousel-header h2 {
+  position: relative;
+  left: -10px;
+}
+
+#introduction{
+  display: none;
+}
+
+#account-row{
+  display:none;
+}
