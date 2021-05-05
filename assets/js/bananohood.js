@@ -194,6 +194,7 @@ function getNFTWaxWallet(){
   if(waxId != "" && waxId != undefined){
     $.getJSON('https://wax.api.atomicassets.io/atomicmarket/v1/assets?owner='+ waxId +'&page=1&limit=10&order=desc&sort=asset_id', function(data) {
       console.log(data);
+      $("#nft-holder")[0].innerHTML = "";
       nfts = data.data;
       for(i in nfts){
         img = "https://ipfs.atomichub.io/ipfs/"+nfts[i].data.img;
